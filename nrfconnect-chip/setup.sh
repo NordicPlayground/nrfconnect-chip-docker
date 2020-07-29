@@ -33,7 +33,9 @@ setup_ncs() {
         [[ $yn =~ [Yy].* ]] || return 0
     fi
 
-    (cd /var/ncs && west init -m https://github.com/nrfconnect/sdk-nrf --mr "$NCS_REVISION" && west update)
+    (cd /var/ncs \
+        && west init -m https://github.com/nrfconnect/sdk-nrf --mr "$NCS_REVISION" \
+        && west update)
 }
 
 setup_chip() {

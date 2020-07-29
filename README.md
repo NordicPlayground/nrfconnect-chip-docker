@@ -7,19 +7,19 @@ This repository contains definitions of docker images that may come in handy dur
 Each subdirectory contains a different docker image definition and `build.sh` script which takes various arguments to customize the image. You may examine the output of `build.sh --help` command to learn available options. Below are instructions to build all the images:
 
 ```bash
-# Build `nrfconnect-toolchain` image composed of all utilities needed to 
+# Build `nrfconnect-toolchain` image composed of utilities needed to 
 # build, flash and debug nRF Connect SDK applications.
 ./nrfconnect-toolchain/build.sh --org nordicsemi
 
 # Build `nrfconnect-chip` image for Connected Home over IP applications.
-# It is based on `nrfconnect-toolchain` image and may walk a user through 
-# the process of collecting sources of NCS and CHIP projects.
+# It is based on `nrfconnect-toolchain` image, but adds a few CHIP dependencies
+# and a helper script for collecting sources of NCS and CHIP projects.
 ./nrfconnect-chip/build.sh --org nordicsemi
 ```
 
 ## Using nrfconnect-toolchain image
 
-Once the image has been built or pulled from the docker hub you may easily build any nRF Connect SDK sample in the container by running the following commands:
+Once the image has been built or pulled from the docker hub and you have downloaded the NCS repository you may easily build any NCS sample in the container by running the following commands:
 ```bash
 # In the command below please replace '~/src/ncs' with location of your local copy
 # of the nRF Connect SDK repository, however keep the '/var/ncs/' part unchanged -
@@ -31,11 +31,11 @@ cd /var/ncs/zephyr/samples/hello_world/
 west build -b nrf52840dk_nrf52840
 ```
 
-To flash the firmware onto your development kit you need to run the container with `--privileged --volume /dev/serial:/dev/serial --volume /dev/bus/usb:/dev/bus/usb` arguments so that it's allowed to access serial interface on the DK.
+To flash the firmware onto your development kit you need to run the container with `--privileged --volume /dev:/dev` arguments so that the container is given access to serial devices on your computer.
 
 ```bash
 # Run the image
-docker run --rm -it --privileged --volume /dev/serial:/dev/serial --volume /dev/bus/usb:/dev/bus/usb --volume ~/src/ncs:/var/ncs nordicsemi/nrfconnect-toolchain
+docker run --rm -it --privileged --volume /dev:/dev --volume ~/src/ncs:/var/ncs nordicsemi/nrfconnect-toolchain
 
 # Then, inside the container run:
 cd /var/ncs/zephyr/samples/hello_world/
@@ -51,26 +51,34 @@ west debug
 # In the command below please replace '~/src/ncs' with location of your local copy
 # of the nRF Connect SDK repository and, likewise, '~/src/chip' with location of 
 # the CHIP repository.
-docker run --rm -it --privileged --volume /dev/serial:/dev/serial --volume /dev/bus/usb:/dev/bus/usb \
-           --volume ~/src/ncs:/var/ncs --volume ~/src/chip:/var/chip nordicsemi/nrfconnect-chip
+docker run --rm -it --privileged --volume /dev:/dev \
+    --volume ~/src/ncs:/var/ncs --volume ~/src/chip:/var/chip nordicsemi/nrfconnect-chip
 
 # Then, inside the container run:
-cd /var/chip/examples/lock-app/nrfconnect
 /var/chip/bootstrap
+cd /var/chip/examples/lock-app/nrfconnect
 west build -b nrf52840dk_nrf52840
 west flash
 west debug
+
+# Note that 'screen' utility is included in the image, so you may also attach to 
+# the UART interface on the DK to get access to application logs and Zephyr shell:
+screen /dev/ttyACM0 115200
+
+# In case you have several DKs connected, you may learn the mapping between their full
+# names and '/dev/ttyACM*' device nodes by running the command:
+ls -l /dev/serial/by-id
 ```
 
-You may use the image even if haven't fetched NCS nor CHIP repositories yet in which case the container may do the necessary setup for you. Hence not even `git` or `west` are needed to be installed on the host. For example:
+You may use the image even if you haven't fetched NCS nor CHIP repositories yet in which case the container may do the necessary setup for you. Hence not even `git` or `west` need to be installed on the host. For example:
 ```bash
 # Create empty directories for NCS and CHIP sources
 mkdir ~/src/ncs
 mkdir ~/src/chip
 
 # Run the image. The welcome screen should inform you about missing sources
-docker run --rm -it --privileged --volume /dev/serial:/dev/serial --volume /dev/bus/usb:/dev/bus/usb \
-           --volume ~/src/ncs:/var/ncs --volume ~/src/chip:/var/chip nordicsemi/nrfconnect-chip
+docker run --rm -it --privileged --volume /dev:/dev \
+    --volume ~/src/ncs:/var/ncs --volume ~/src/chip:/var/chip nordicsemi/nrfconnect-chip
 
 # OUTPUT:
 #
@@ -91,8 +99,16 @@ setup
 
 # OUTPUT:
 #
-# /var/ncs repository is empty. Do you wish to check out nRF Connect SDK sources [v1.3.0]? [Y/N] y
+# /var/ncs repository is empty. Do you wish to check out nRF Connect SDK sources [master]? [Y/N] y
 # ...
 # /var/chip repository is empty. Do you wish to check out Project CHIP sources [master]? [Y/N] y
 # ...
+
+# From now on you may run the commands presented in the previous paragraph:
+/var/chip/bootstrap
+cd /var/chip/examples/lock-app/nrfconnect
+west build -b nrf52840dk_nrf52840
+west flash
+west debug
+screen /dev/ttyACM0 115200
 ```
