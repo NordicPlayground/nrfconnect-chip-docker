@@ -55,8 +55,12 @@ setup_chip() {
         [[ $yn =~ [Yy].* ]] || return 0
     fi
 
+    local -a CLONE_ARGS
+    [[ "$CHIP_REVISION" == master ]] && CLONE_ARGS=(--single-branch --branch "$CHIP_REVISION")
+
     (cd /var/chip \
-        && git clone --single-branch --branch "$CHIP_REVISION" https://github.com/project-chip/connectedhomeip.git . \
+        && git clone -n "${CLONE_ARGS[@]}" https://github.com/project-chip/connectedhomeip.git . \
+        && git checkout "$CHIP_REVISION" \
         && git submodule update --init)
 }
 
