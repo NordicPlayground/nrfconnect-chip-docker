@@ -16,7 +16,7 @@ RUN set -x \
     && chmod 777 /tmp && apt-get update \
     && apt-get -y install autoconf \
     && apt-get -y install --no-install-recommends sudo make g++ libssl-dev libtool dbus libdbus-1-dev \
-        libdbus-glib-1-dev libboost-dev autoconf-archive libreadline-dev \
+        libdbus-glib-1-dev libboost-dev autoconf-archive libreadline-dev g++-multilib \
         iputils-ping net-tools nano screen \
     && apt-get -y clean && apt-get -y autoremove \
     && rm -rf /tmp/* /var/lib/apt/lists/* \

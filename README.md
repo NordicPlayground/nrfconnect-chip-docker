@@ -17,28 +17,6 @@ Each subdirectory contains a different docker image definition and `build.sh` sc
 ./nrfconnect-chip/build.sh --org nordicsemi
 ```
 
-## Using nrfconnect-toolchain image
-
-Once you have built (or pulled from the docker hub) the image and checked out the NCS repository you may easily build, flash and debug any NCS sample in the container by following the instruction below. First of all, start the container:
-```bash
-docker run --rm -it --privileged --volume /dev:/dev --volume ~/src/ncs:/var/ncs nordicsemi/nrfconnect-toolchain
-```
-
-NOTES:
-* In the command above please replace `~/src/ncs` with location of your local copy of the nRF Connect SDK repository, however keep the `/var/ncs/` part unchanged - it will allow the container to automatically configure the NCS build system.
-* You may skip `--privileged --volume /dev:/dev` flags if you only wish to build the example and not to flash nor debug it on real hardware. These flags give the container full access to devices on your system.
-* You may skip `--rm` flag if you don't want to auto-remove the container at the end of the current shell session.
-
-Then, inside the container run:
-```bash
-cd /var/ncs/zephyr/samples/hello_world/
-rm -rf build # clean old build artifacts if there are any
-west build -b nrf52840dk_nrf52840
-west flash
-west debug
-...
-```
-
 ## Using nrfconnect-chip image
 
 **nrfconnect-chip** image aims to help develop CHIP applications based on nRF Connect SDK. Once you have built (or pulled from the docker hub) the image and checked out NCS and CHIP sources you may run the container using the command:

@@ -25,4 +25,4 @@ done
 
 [[ -n "$ORG" ]] || usage
 
-docker build -t "$ORG/$IMAGE:$VERSION" --build-arg "BASE=$ORG/$BASE:$VERSION" -f "$DIR/Dockerfile" "$DIR"
+docker build -t "$ORG/$IMAGE:$VERSION" --build-arg "BASE=$ORG/$BASE:$VERSION" $DOCKER_BUILD_ARGS -f "$DIR/Dockerfile" "$DIR"
