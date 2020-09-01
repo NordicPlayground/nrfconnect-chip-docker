@@ -3,21 +3,30 @@ FROM ${BASE}
 
 ARG NCS_REVISION="master"
 ARG CHIP_REVISION="master"
+ARG GN_BUILD_URL="https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-amd64/+/latest"
 
 ENV NCS_REVISION ${NCS_REVISION}
 ENV CHIP_REVISION ${CHIP_REVISION}
-
 ENV WPANTUND_REVISION a4fb3ca5c53701f1267321674093d2fdeeb7dbe5
 
 RUN set -x \
     #
-    # Install autotools and Standalone CHIP dependencies
+    # Install autotools, CHIP dependencies and utilities
     #
     && chmod 777 /tmp && apt-get update \
     && apt-get -y install autoconf \
-    && apt-get -y install --no-install-recommends sudo make g++ libssl-dev libtool dbus libdbus-1-dev \
-        libdbus-glib-1-dev libboost-dev autoconf-archive libreadline-dev g++-multilib \
+    && apt-get -y install --no-install-recommends sudo make g++ g++-multilib python \
+        libssl-dev libtool dbus libdbus-1-dev libdbus-glib-1-dev libboost-dev autoconf-archive libreadline-dev  \
         iputils-ping net-tools nano screen \
+    #
+    # Install GN build
+    #
+    && curl -L -o /tmp/gn.zip ${GN_BUILD_URL} \
+    && python3 -c "from zipfile import *; ZipFile('/tmp/gn.zip').extract('gn', '/usr/bin')" \
+    && chmod +x /usr/bin/gn \
+    #
+    # Cleanup
+    #
     && apt-get -y clean && apt-get -y autoremove \
     && rm -rf /tmp/* /var/lib/apt/lists/* \
     && :
@@ -47,7 +56,7 @@ RUN set -x \
     && echo 'setup() { /opt/setup "$@" && { source /var/ncs/zephyr/zephyr-env.sh 2>/dev/null || true; }; }' >> ~/.profile \
     && echo 'export -f setup' >> ~/.profile \
     # 2. Kernel configuration
-    && echo '/sbin/sysctl -w net.ipv6.conf.all.disable_ipv6=0 net.ipv6.conf.all.forwarding=1 > /dev/null' >> ~/.profile \
+    && echo '/sbin/sysctl -w net.ipv6.conf.all.disable_ipv6=0 net.ipv6.conf.all.forwarding=1 >/dev/null 2>&1' >> ~/.profile \
     && :
 
 # Copy the scripts and the NCP firmware
