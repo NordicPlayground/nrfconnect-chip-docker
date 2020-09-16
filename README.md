@@ -1,10 +1,10 @@
-# nRF Connect SDK: sdk-docker
+# nRF Connect SDK: nrfconnect-chip-docker
 
-This repository contains definitions of docker images that may come in handy during development of nRF Connect SDK (NCS) applications.
+This repository contains definition of `nrfconnect-chip` docker image which may come in handy during development of CHIP applications based on nRF Connect SDK (NCS).
 
 ## Build instructions
 
-Each subdirectory contains a different docker image definition and `build.sh` script which takes various arguments to customize the image. You may examine the output of `build.sh --help` command to learn the available options. Below are instructions to build all the images:
+Below are steps needed to build `nrfconnect-chip` docker image. Note that the `build.sh` scripts take various optional arguments to customize the build and `build.sh --help` is the way to list all available options.
 
 ```bash
 # Build `nrfconnect-toolchain` image composed of utilities needed to 
@@ -19,72 +19,27 @@ Each subdirectory contains a different docker image definition and `build.sh` sc
 
 ## Using nrfconnect-chip image
 
-**nrfconnect-chip** image aims to help develop CHIP applications based on nRF Connect SDK. Once you have built (or pulled from the docker hub) the image and checked out NCS and CHIP sources you may run the container using the command:
+**nrfconnect-chip** image aims to help develop CHIP applications based on nRF Connect SDK. 
 
-```bash
-docker run --rm -it --privileged --volume /dev:/dev --volume ~/src/ncs:/var/ncs --volume ~/src/chip:/var/chip nordicsemi/nrfconnect-chip
-```
+[CHIP repository](https://github.com/project-chip/connectedhomeip) comes with a few examples based on nRF Connect SDK. [README](https://github.com/project-chip/connectedhomeip/blob/master/examples/lock-app/nrfconnect/README.md#using-docker-container) file in the *lock-app* example's directory describes how to build, flash and debug the application using the `nrfconnect-chip` image.
 
 NOTES:
-* In the command above please replace `~/src/ncs` with location of your local copy of the nRF Connect SDK repository, however keep the `/var/ncs/` part unchanged - it will allow the container to automatically configure the NCS build system.
-* Likewise, replace `~/src/chip` with location of your local copy of the CHIP repository.
-* You may skip `--privileged --volume /dev:/dev` flags if you only wish to build the example and not to flash nor debug it on real hardware. These flags give the container full access to devices on your system.
-* You may skip `--rm` flag if you don't want to auto-remove the container at the end of the current shell session.
 
-Then, inside the container run:
-```bash
-/var/chip/bootstrap
-cd /var/chip/examples/lock-app/nrfconnect
-rm -rf build  # clean old build artifacts if there are any
-west build -b nrf52840dk_nrf52840
-west flash
-west debug
+* Due to [certain limitations of Docker for MacOS](https://docs.docker.com/docker-for-mac/faqs/#can-i-pass-through-a-usb-device-to-a-container) MacOS users can't use the docker image to interact with nRF hardware. You can still use it to build CHIP applications though.
+* New devices may not appear automatically in the container, so restart the container whenever you connect another devkit to your computer.
+* `screen` utility is included in the image, so you may use it to attach to the UART interface on your devkit and get access to application logs and Zephyr shell:
 
-# Note that 'screen' utility is included in the image, so you may also attach to 
-# the UART interface on the DK to get access to application logs and Zephyr shell:
-screen /dev/ttyACM0 115200
+        screen /dev/ttyACM0 115200
 
-# In case you have several DKs connected, you may learn the mapping between their full
-# names and '/dev/ttyACM*' device nodes by running the command:
-ls -l /dev/serial/by-id
-```
+* The image contains also `dbus`, `wpantund` and the NCP firmware, so you can easily set up the OpenThread NCP solution on a nRF52840 DK:
+        
+        # Get serial numbers of connected DKs
+        nrfjprog -i
+        # Flash NCP onto the desired DK
+        nrfjprog -s <DK-serial-number> --program /opt/ncp_4.0.0_pca10056.hex --chiperase --reset
+        # Start wpantund (in case /dev/ttyACM0 is serial interface of the DK)
+        service dbus start
+        wpantund -s /dev/ttyACM0 -b 115200 &
+        wpanctl
+        # ... now use wpanctl commands to connect to the Thread network
 
-You may use the image even if you haven't fetched NCS nor CHIP repositories yet in which case the container may do the necessary setup for you. Hence not even `git` or `west` need to be installed on the host system. For example:
-```bash
-# Create empty directories for NCS and CHIP sources
-mkdir ~/src/ncs
-mkdir ~/src/chip
-
-# Run the image. The welcome screen should inform you about missing sources
-docker run --rm -it --privileged --volume /dev:/dev --volume ~/src/ncs:/var/ncs --volume ~/src/chip:/var/chip nordicsemi/nrfconnect-chip
-
-# OUTPUT:
-#
-# Welcome to development environment for nRF Connect SDK and CHIP applications
-# 
-# - /var/ncs is empty
-# 
-#   to enable build of nRF Connect SDK applications run "setup" command which will fetch 
-#   required nRF Connect SDK sources
-# 
-# - /var/chip is empty
-# 
-#   to enable build of CHIP applications run "setup" command which will fetch required
-#   Connected Home over IP sources
-
-# Run the setup as advised
-setup
-
-# OUTPUT:
-#
-# /var/ncs repository is empty. Do you wish to check out nRF Connect SDK sources [master]? [Y/N] y
-# ...
-# /var/chip repository is empty. Do you wish to check out Project CHIP sources [master]? [Y/N] y
-# ...
-
-# From now on you may run the commands presented in the previous paragraph:
-/var/chip/bootstrap
-cd /var/chip/examples/lock-app/nrfconnect
-west build -b nrf52840dk_nrf52840
-...
-```
