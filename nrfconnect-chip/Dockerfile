@@ -3,11 +3,17 @@ FROM ${BASE}
 
 ARG NCS_REVISION="master"
 ARG CHIP_REVISION="master"
+ARG WPANTUND_REVISION="a4fb3ca5c53701f1267321674093d2fdeeb7dbe5"
 ARG GN_BUILD_URL="https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-amd64/+/latest"
+
+ARG USERNAME="build"
+ARG GROUPNAME=${USERNAME}
+ARG USER_UID="1000"
+ARG USER_GID=${USER_UID}
 
 ENV NCS_REVISION ${NCS_REVISION}
 ENV CHIP_REVISION ${CHIP_REVISION}
-ENV WPANTUND_REVISION a4fb3ca5c53701f1267321674093d2fdeeb7dbe5
+ENV ZEPHYR_BASE /var/ncs/zephyr
 
 RUN set -x \
     #
@@ -46,16 +52,28 @@ RUN set -x \
     && rm -rf ./wpantund \
     && :
 
+RUN set -x \
+    #
+    # Add the default container user
+    #
+    && groupadd -g ${USER_GID} ${GROUPNAME} \
+    && useradd -s /bin/bash -u ${USER_UID} -g ${USER_GID} -m ${USERNAME} \
+    && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
+    && chmod 0440 /etc/sudoers.d/${USERNAME} \
+    && :
+
+USER ${USERNAME}:${GROUPNAME}
 
 RUN set -x \
     #
-    # Configuration
+    # Configure user profile:
     # 1. Add "setup" function which calls "/opt/setup" script and updates environment by sourcing zephyr-env.sh
+    # 2. Kernel configuration
     #
     && echo >> ~/.profile \
+    && echo "umask 002" >> ~/.profile \
     && echo 'setup() { /opt/setup "$@" && { source /var/ncs/zephyr/zephyr-env.sh 2>/dev/null || true; }; }' >> ~/.profile \
     && echo 'export -f setup' >> ~/.profile \
-    # 2. Kernel configuration
     && echo '/sbin/sysctl -w net.ipv6.conf.all.disable_ipv6=0 net.ipv6.conf.all.forwarding=1 >/dev/null 2>&1' >> ~/.profile \
     && :
 

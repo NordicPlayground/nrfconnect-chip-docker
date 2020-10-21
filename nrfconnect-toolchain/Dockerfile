@@ -49,16 +49,6 @@ RUN set -x \
     && rm -rf /tmp/* /var/lib/apt/lists/* ~/.cache/* \
     && :
 
-RUN set -x \
-    #
-    # Configuration
-    # 1. make sure a user has rights to delete files created by processes running in the container
-    # 2. setup west build system if NCS is present
-    #
-    && echo "\numask 000" >> ~/.profile \
-    && echo "\n[[ -d /var/ncs/zephyr ]] && source /var/ncs/zephyr/zephyr-env.sh" >> ~/.profile \
-    && :
-
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
