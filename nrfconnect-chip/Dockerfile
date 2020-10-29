@@ -21,8 +21,9 @@ RUN set -x \
     #
     && chmod 777 /tmp && apt-get update \
     && apt-get -y install autoconf \
-    && apt-get -y install --no-install-recommends sudo make g++ g++-multilib python \
-        libssl-dev libtool dbus libdbus-1-dev libdbus-glib-1-dev libboost-dev autoconf-archive libreadline-dev  \
+    && apt-get -y install --no-install-recommends sudo make g++ g++-multilib python dbus \
+        libssl-dev libtool libdbus-1-dev libdbus-glib-1-dev libboost-dev autoconf-archive \
+        libreadline-dev libavahi-client-dev libpython3-dev python3-venv \
         iputils-ping net-tools nano screen \
     #
     # Install GN build
