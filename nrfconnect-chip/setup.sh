@@ -40,7 +40,7 @@ setup_ncs() {
     elif git -C /var/ncs/nrf rev-parse --abbrev-ref HEAD@{u} 2>/dev/null >&2; then
         confirm "/var/ncs repository may be updated. Do you wish to continue?" || return 0
         (cd /var/ncs/nrf \
-            && git pull --ff-only origin HEAD \
+            && git pull --ff-only \
             && west update)
     # Current HEAD is either not a branch or it's not tracking any upstream branch
     elif git -C /var/ncs/nrf status 2>/dev/null >&2; then
@@ -73,7 +73,7 @@ setup_chip() {
     elif git -C /var/chip rev-parse --abbrev-ref HEAD@{u} 2>/dev/null >&2; then
         confirm "/var/chip repository may be updated. Do you wish to continue?" || return 0
         (cd /var/chip \
-            && git pull --ff-only origin HEAD \
+            && git pull --ff-only \
             && git submodule update --init)
     # Current HEAD is either not a branch or it's not tracking any upstream branch
     elif git -C /var/ncs/nrf status 2>/dev/null >&2; then

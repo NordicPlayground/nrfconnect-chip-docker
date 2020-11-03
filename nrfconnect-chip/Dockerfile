@@ -53,36 +53,11 @@ RUN set -x \
     && rm -rf ./wpantund \
     && :
 
-RUN set -x \
-    #
-    # Add the default container user
-    #
-    && groupadd -g ${USER_GID} ${GROUPNAME} \
-    && useradd -s /bin/bash -u ${USER_UID} -g ${USER_GID} -m ${USERNAME} \
-    && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
-    && chmod 0440 /etc/sudoers.d/${USERNAME} \
-    && :
-
-USER ${USERNAME}:${GROUPNAME}
-
-RUN set -x \
-    #
-    # Configure user profile:
-    # 1. Add "setup" function which calls "/opt/setup" script and updates environment by sourcing zephyr-env.sh
-    # 2. Kernel configuration
-    #
-    && echo >> ~/.profile \
-    && echo "umask 002" >> ~/.profile \
-    && echo 'setup() { /opt/setup "$@" && { source /var/ncs/zephyr/zephyr-env.sh 2>/dev/null || true; }; }' >> ~/.profile \
-    && echo 'export -f setup' >> ~/.profile \
-    && echo '/sbin/sysctl -w net.ipv6.conf.all.disable_ipv6=0 net.ipv6.conf.all.forwarding=1 >/dev/null 2>&1' >> ~/.profile \
-    && :
-
 # Copy the scripts and the NCP firmware
+COPY entrypoint.sh /opt/entrypoint
 COPY welcome.sh /opt/welcome
-COPY setup.sh /opt/setup
+COPY setup.sh /usr/bin/setup
 COPY ncp_4.0.0_pca10056.hex /opt/ncp_4.0.0_pca10056.hex
 
-# Make sure ~/.profile is always loaded
-ENTRYPOINT ["/bin/bash", "--login", "-c"]
+ENTRYPOINT ["/opt/entrypoint"]
 CMD ["/opt/welcome"]
