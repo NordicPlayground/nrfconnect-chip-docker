@@ -3,6 +3,12 @@
 # Assume 'yes' for all questions
 declare -i YES_TO_ALL
 
+# --ncs <rev> argument was provided 
+declare -i NCS_ARG_PRESENT
+
+# --chip <rev> argument was provided
+declare -i CHIP_ARG_PRESENT
+
 usage() {
     cat >&2 <<EOF
 Usage: setup [OPTION]...
@@ -24,6 +30,14 @@ confirm() {
     fi
 }
 
+current_branch() {
+    git -C "$1" rev-parse --abbrev-ref HEAD 2>/dev/null
+}
+
+is_current_branch_tracking() {
+    git -C "$1" rev-parse --abbrev-ref "HEAD@{u}" 2>/dev/null >&2
+}
+
 setup_ncs() {
     [[ -d /var/ncs ]] || {
         echo "/var/ncs is not mounted, skipping..." >&2
@@ -36,8 +50,16 @@ setup_ncs() {
         (cd /var/ncs \
             && west init -m https://github.com/nrfconnect/sdk-nrf --mr "$NCS_REVISION" \
             && west update)
+    # Switch HEAD to a different revision
+    elif ((NCS_ARG_PRESENT)) && [[ "$(current_branch /var/ncs/nrf)" != "$NCS_REVISION" ]]; then
+        confirm "/var/ncs repository is initialized. Do you wish to check out revision [$NCS_REVISION]?" || return 0
+        (cd /var/ncs/nrf \
+            && git fetch \
+            && git checkout "$NCS_REVISION" \
+            && (! is_current_branch_tracking . || git pull --ff-only) \
+            && west update)
     # Current HEAD is a branch tracking an upstream
-    elif git -C /var/ncs/nrf rev-parse --abbrev-ref HEAD@{u} 2>/dev/null >&2; then
+    elif is_current_branch_tracking /var/ncs/nrf; then
         confirm "/var/ncs repository may be updated. Do you wish to continue?" || return 0
         (cd /var/ncs/nrf \
             && git pull --ff-only \
@@ -61,16 +83,20 @@ setup_chip() {
     # /var/chip is empty
     if [[ -z "$(ls -A /var/chip)" ]]; then
         confirm "/var/chip repository is empty. Do you wish to check out Project CHIP sources [$CHIP_REVISION]?" || return 0
-
-        local -a CLONE_ARGS
-        [[ "$CHIP_REVISION" == master ]] && CLONE_ARGS=(--single-branch --branch "$CHIP_REVISION")
-
         (cd /var/chip \
-            && git clone -n "${CLONE_ARGS[@]}" https://github.com/project-chip/connectedhomeip.git . \
+            && git clone -n https://github.com/project-chip/connectedhomeip.git . \
             && git checkout "$CHIP_REVISION" \
             && git submodule update --init)
+    # Switch HEAD to a different revision
+    elif ((CHIP_ARG_PRESENT)) && [[ "$(current_branch /var/chip)" != "$CHIP_REVISION" ]]; then
+        confirm "/var/chip repository is initialized. Do you wish to check out revision [$CHIP_REVISION]?" || return 0
+        (cd /var/chip \
+            && git fetch \
+            && git checkout "$CHIP_REVISION" \
+            && (! is_current_branch_tracking . || git pull --ff-only) \
+            && git submodule update --init)
     # Current HEAD is a branch tracking an upstream
-    elif git -C /var/chip rev-parse --abbrev-ref HEAD@{u} 2>/dev/null >&2; then
+    elif is_current_branch_tracking /var/chip; then
         confirm "/var/chip repository may be updated. Do you wish to continue?" || return 0
         (cd /var/chip \
             && git pull --ff-only \
@@ -88,8 +114,8 @@ setup_chip() {
 while (($#)); do
     case "$1" in
         -y) YES_TO_ALL=1;;
-        --ncs) NCS_REVISION="$2"; shift;;
-        --chip) CHIP_REVISION="$2"; shift;;
+        --ncs) NCS_REVISION="$2"; NCS_ARG_PRESENT=1; shift;;
+        --chip) CHIP_REVISION="$2"; CHIP_ARG_PRESENT=1; shift;;
         --help) usage;;
     esac
     shift

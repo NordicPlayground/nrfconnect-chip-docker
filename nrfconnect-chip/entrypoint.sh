@@ -3,6 +3,9 @@
 # Enable IPv6 forwarding
 sysctl -w net.ipv6.conf.all.disable_ipv6=0 net.ipv6.conf.all.forwarding=1 >/dev/null 2>&1
 
+# Change working directory
+cd /var/chip 2>/dev/null
+
 # If RUNAS environmental variable is non-empty add a new user "build" with the user id equal to $RUNAS
 # and switch to that user.
 if [[ -n "$RUNAS" ]]; then
