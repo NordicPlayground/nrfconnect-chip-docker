@@ -28,29 +28,18 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-DIR=$(dirname "$(realpath "$0")")
+ORG=$1
+VER=$2
 
-ORG=
-IMAGE=$(basename "$DIR")
-VERSION=latest
-
-BASE=nrfconnect-toolchain
-
-usage() {
-	echo "Usage: $0 --org <organization> [--version <version> --base <base-image-name>]" >&2
-	exit 1
+[[ -n $VER ]] || {
+    echo "Usage: $0 <dockerhub_organization> <version>" >&2
+    exit 1
 }
 
-while (($#)); do
-	case "$1" in
-		--org) ORG="$2"; shift;;
-		--version) VERSION="$2"; shift;;
-		--base) BASE="$2"; shift;;
-		--help) usage;;
-	esac
-	shift
-done
+export DOCKER_BUILD_ARGS="--no-cache"
 
-[[ -n "$ORG" ]] || usage
-
-docker build -t "$ORG/$IMAGE:$VERSION" --build-arg "BASE=$ORG/$BASE:$VERSION" $DOCKER_BUILD_ARGS -f "$DIR/Dockerfile" "$DIR"
+./nrfconnect-toolchain/build.sh --org "$ORG" --version "$VER" \
+    && ./nrfconnect-chip/build.sh --org "$ORG" --version "$VER" \
+    && docker tag "$ORG/nrfconnect-chip:$VER" "$ORG/nrfconnect-chip:latest" \
+    && docker push "$ORG/nrfconnect-chip:$VER" \
+    && docker push "$ORG/nrfconnect-chip:latest"

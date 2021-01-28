@@ -30,16 +30,3 @@ NOTES:
 * `screen` utility is included in the image, so you may use it to attach to the UART interface on your devkit and get access to application logs and Zephyr shell:
 
         screen /dev/ttyACM0 115200
-
-* The image contains also `dbus`, `wpantund` and the NCP firmware, so you can easily set up the OpenThread NCP solution on a nRF52840 DK:
-        
-        # Get serial numbers of connected DKs
-        nrfjprog -i
-        # Flash NCP onto the desired DK
-        nrfjprog -s <DK-serial-number> --program /opt/ncp_4.0.0_pca10056.hex --chiperase --reset
-        # Start wpantund (in case /dev/ttyACM0 is serial interface of the DK)
-        service dbus start
-        wpantund -s /dev/ttyACM0 -b 115200 &
-        wpanctl
-        # ... now use wpanctl commands to connect to the Thread network
-
