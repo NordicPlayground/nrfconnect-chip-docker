@@ -52,7 +52,7 @@ RUN set -x \
     && apt-get -y install autoconf \
     && apt-get -y install --no-install-recommends sudo make g++ g++-multilib python \
         libssl-dev libtool libdbus-1-dev libdbus-glib-1-dev libavahi-client-dev \
-        libpython3-dev python3-venv nano screen \
+        libpython3-dev libgirepository-1.0-1 python3-venv nano screen \
     #
     # Install GN build
     #

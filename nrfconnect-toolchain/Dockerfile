@@ -28,11 +28,11 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-FROM ubuntu:20.04
+FROM ubuntu:20.10
 
 ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2"
 ARG DTC_URL="http://ftp.br.debian.org/debian/pool/main/d/device-tree-compiler/device-tree-compiler_1.4.7-3_amd64.deb"
-ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-12-1/nRFCommandLineTools10121Linuxamd64tar.gz"
+ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-12-1/nRFCommandLineTools10121Linuxamd64.tar.gz"
 ARG NCS_REVISION="master"
 
 RUN set -x \
@@ -40,12 +40,8 @@ RUN set -x \
     # Install apt packages (gcc and libpython3-dev are temporarily needed to install some pip modules)
     #
     && apt-get update && apt-get -y upgrade \
-    && apt-get -y install --no-install-recommends curl ninja-build python3-pip git \
+    && apt-get -y install --no-install-recommends bzip2 curl ninja-build python3-pip git device-tree-compiler \
     && apt-get -y install --no-install-recommends gcc libpython3-dev \
-    #
-    # Device Tree Compiler
-    #
-    && curl -o /tmp/dtc.deb ${DTC_URL} && dpkg -i /tmp/dtc.deb \
     #
     # nRF Tools for flashing software on Nordic devices, and accessing device logs
     #
