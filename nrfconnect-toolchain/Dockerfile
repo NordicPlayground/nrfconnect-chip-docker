@@ -28,27 +28,28 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-FROM ubuntu:20.10
+FROM ubuntu:21.04
 
-ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2"
-ARG DTC_URL="http://ftp.br.debian.org/debian/pool/main/d/device-tree-compiler/device-tree-compiler_1.4.7-3_amd64.deb"
-ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-12-1/nRFCommandLineTools10121Linuxamd64.tar.gz"
+ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
+ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-14-0/nRF-Command-Line-Tools_10_14_0_Linux64.zip"
 ARG NCS_REVISION="master"
 
 RUN set -x \
     #
     # Install apt packages (gcc and libpython3-dev are temporarily needed to install some pip modules)
     #
-    && apt-get update && apt-get -y upgrade \
-    && apt-get -y install --no-install-recommends bzip2 curl ninja-build python3-pip git device-tree-compiler \
-    && apt-get -y install --no-install-recommends gcc libpython3-dev \
+    && DEBIAN_FRONTEND=noninteractive apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends bzip2 unzip curl ninja-build python3-pip git device-tree-compiler libusb-1.0-0 \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends gcc libpython3-dev \
     #
     # nRF Tools for flashing software on Nordic devices, and accessing device logs
     #
-    && curl ${NRF_TOOLS_URL} | tar xz -C /tmp \
-    && dpkg -i --force-depends /tmp/JLink_Linux_*.deb \
-    && dpkg -i --force-depends /tmp/nRF-Command-Line-Tools_*.deb \
-    && apt-get -y install --fix-broken \
+    && (mkdir /tmp/tools && cd /tmp/tools \
+    && curl -o tools.zip ${NRF_TOOLS_URL} \
+    && unzip tools.zip \
+    && tar xf nRF-Command-Line-Tools_*_Linux64/nrf-command-line-tools-*_Linux-amd64.tar.gz \
+    && dpkg -i nRF-Command-Line-Tools_*_Linux64/nrf-command-line-tools_*_amd64.deb \
+    && dpkg -i JLink_Linux_*x86_64.deb) \
     #
     # GCC ARM Embedded Toolchain
     #
@@ -63,19 +64,20 @@ RUN set -x \
     #
     && (mkdir /tmp/ncs && cd /tmp/ncs \
     && west init -m https://github.com/nrfconnect/sdk-nrf --mr ${NCS_REVISION} \
-    && west update \
+    && west update --narrow -o=--depth=1 \
     && python3 -m pip install --no-cache-dir -r zephyr/scripts/requirements.txt \
     && python3 -m pip install --no-cache-dir -r nrf/scripts/requirements.txt \
     && python3 -m pip install --no-cache-dir -r bootloader/mcuboot/scripts/requirements.txt) \
     #
     # Cleanup
     #
-    && apt-get -y remove gcc libpython3-dev \
-    && apt-get -y clean && apt-get -y autoremove \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq remove gcc libpython3-dev \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq clean \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq autoremove \
     && rm -rf /tmp/* /var/lib/apt/lists/* ~/.cache/* \
     && :
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-ENV GNUARMEMB_TOOLCHAIN_PATH=/opt/gcc-arm-none-eabi-9-2020-q2-update
+ENV GNUARMEMB_TOOLCHAIN_PATH=/opt/gcc-arm-none-eabi-9-2019-q4-major/
