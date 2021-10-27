@@ -31,7 +31,7 @@
 ARG BASE
 FROM ${BASE}
 
-ARG NCS_REVISION="master"
+ARG NCS_REVISION="main"
 ARG CHIP_REVISION="master"
 ARG GN_BUILD_URL="https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-amd64/+/latest"
 
