@@ -30,8 +30,10 @@
 
 FROM ubuntu:21.04
 
-ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
-ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-14-0/nRF-Command-Line-Tools_10_14_0_Linux64.zip"
+ARG TOOLCHAIN_MD5="fe0029de4f4ec43cf7008944e34ff8cc"
+ARG TOOLCHAIN_URL="https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
+ARG NRF_TOOLS_SHA256="05982D0E104A8723D2EA1BFD5AA12493C87164DE2D3A1D62C8B2D21BD40CCB88"
+ARG NRF_TOOLS_URL="https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-15-1/nrf-command-line-tools-10.15.1_linux-amd64.zip"
 ARG NCS_REVISION="main"
 
 RUN set -x \
@@ -40,20 +42,24 @@ RUN set -x \
     #
     && DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends bzip2 unzip curl ninja-build python3-pip git device-tree-compiler libusb-1.0-0 \
-    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends gcc libpython3-dev \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends gcc libpython3-dev libsm6 \
     #
     # nRF Tools for flashing software on Nordic devices, and accessing device logs
     #
     && (mkdir /tmp/tools && cd /tmp/tools \
-    && curl -o tools.zip ${NRF_TOOLS_URL} \
+    && echo "${NRF_TOOLS_SHA256} tools.zip" >> tools.zip.sha256 \
+    && curl -L -o tools.zip ${NRF_TOOLS_URL} \
+    && sha256sum -c tools.zip.sha256 \
     && unzip tools.zip \
-    && tar xf nRF-Command-Line-Tools_*_Linux64/nrf-command-line-tools-*_Linux-amd64.tar.gz \
-    && dpkg -i nRF-Command-Line-Tools_*_Linux64/nrf-command-line-tools_*_amd64.deb \
+    && dpkg -i nrf-command-line-tools_*_amd64.deb \
     && dpkg -i JLink_Linux_*x86_64.deb) \
     #
     # GCC ARM Embedded Toolchain
     #
-    && curl -L ${TOOLCHAIN_URL} | tar xj -C /opt --exclude='*/share/doc' \
+    && echo "${TOOLCHAIN_MD5} toolchain.tar.bz2" > toolchain.tar.bz2.md5 \
+    && curl -L -o toolchain.tar.bz2 ${TOOLCHAIN_URL} \
+    && md5sum -c toolchain.tar.bz2.md5 \
+    && tar xjf toolchain.tar.bz2 -C /opt --exclude='*/share/doc' \
     #
     # nRF Connect SDK dependencies
     #
