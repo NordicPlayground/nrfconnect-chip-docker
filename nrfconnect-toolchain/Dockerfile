@@ -56,10 +56,11 @@ RUN set -x \
     #
     # GCC ARM Embedded Toolchain
     #
+    && (mkdir /tmp/toolchain && cd /tmp/toolchain \
     && echo "${TOOLCHAIN_MD5} toolchain.tar.bz2" > toolchain.tar.bz2.md5 \
     && curl -L -o toolchain.tar.bz2 ${TOOLCHAIN_URL} \
     && md5sum -c toolchain.tar.bz2.md5 \
-    && tar xjf toolchain.tar.bz2 -C /opt --exclude='*/share/doc' \
+    && tar xjf toolchain.tar.bz2 -C /opt --exclude='*/share/doc') \
     #
     # nRF Connect SDK dependencies
     #
