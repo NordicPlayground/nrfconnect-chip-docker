@@ -31,9 +31,9 @@
 FROM ubuntu:21.04
 
 ARG TOOLCHAIN_MD5="fe0029de4f4ec43cf7008944e34ff8cc"
-ARG TOOLCHAIN_URL="https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
+ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
 ARG NRF_TOOLS_SHA256="05982D0E104A8723D2EA1BFD5AA12493C87164DE2D3A1D62C8B2D21BD40CCB88"
-ARG NRF_TOOLS_URL="https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-15-1/nrf-command-line-tools-10.15.1_linux-amd64.zip"
+ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-1/nrf-command-line-tools-10.15.1_Linux-amd64.zip"
 ARG NCS_REVISION="main"
 
 RUN set -x \
