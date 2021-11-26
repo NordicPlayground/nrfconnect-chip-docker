@@ -60,6 +60,10 @@ RUN set -x \
     && python3 -c "from zipfile import *; ZipFile('/tmp/gn.zip').extract('gn', '/usr/bin')" \
     && chmod +x /usr/bin/gn \
     #
+    # Install nrfutil
+    #
+    && python3 -m pip install --no-cache-dir nrfutil \
+    #
     # Cleanup
     #
     && apt-get -y clean && apt-get -y autoremove \
