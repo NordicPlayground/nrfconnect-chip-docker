@@ -52,17 +52,17 @@ RUN set -x \
     && apt-get -y install autoconf \
     && apt-get -y install --no-install-recommends sudo make g++ g++-multilib python \
         libssl-dev libtool libdbus-1-dev libdbus-glib-1-dev libavahi-client-dev \
-        libpython3-dev libgirepository-1.0-1 python3-venv nano screen \
+        libpython3-dev libgirepository-1.0-1 python3-venv nano screen python-is-python3\
     #
     # Install GN build
     #
     && curl -L -o /tmp/gn.zip ${GN_BUILD_URL} \
-    && python3 -c "from zipfile import *; ZipFile('/tmp/gn.zip').extract('gn', '/usr/bin')" \
+    && python -c "from zipfile import *; ZipFile('/tmp/gn.zip').extract('gn', '/usr/bin')" \
     && chmod +x /usr/bin/gn \
     #
     # Install nrfutil
     #
-    && python3 -m pip install --no-cache-dir nrfutil \
+    && python -m pip install --no-cache-dir nrfutil \
     #
     # Cleanup
     #
