@@ -32,8 +32,8 @@ FROM ubuntu:21.04
 
 ARG TOOLCHAIN_MD5="fe0029de4f4ec43cf7008944e34ff8cc"
 ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
-ARG NRF_TOOLS_SHA256="05982D0E104A8723D2EA1BFD5AA12493C87164DE2D3A1D62C8B2D21BD40CCB88"
-ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-1/nrf-command-line-tools-10.15.1_Linux-amd64.zip"
+ARG NRF_TOOLS_SHA256="3626416b777e89282f3baea71ef7ba9eceb8ef36aff6fe06dbcc88f7cfe0b961"
+ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-2/nrf-command-line-tools-10.15.2_Linux-amd64.zip"
 ARG NCS_REVISION="main"
 
 RUN set -x \
@@ -41,7 +41,7 @@ RUN set -x \
     # Install apt packages (gcc and libpython3-dev are temporarily needed to install some pip modules)
     #
     && DEBIAN_FRONTEND=noninteractive apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends bzip2 unzip curl ninja-build python3-pip git device-tree-compiler libusb-1.0-0 \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends bzip2 unzip curl ninja-build python3-pip git device-tree-compiler libusb-1.0-0 libncurses5 \
     && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends gcc libpython3-dev libsm6 \
     #
     # nRF Tools for flashing software on Nordic devices, and accessing device logs
