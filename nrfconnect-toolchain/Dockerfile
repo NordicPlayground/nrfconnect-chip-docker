@@ -65,7 +65,7 @@ RUN set -x \
     # nRF Connect SDK dependencies
     #
     && python3 -m pip install --no-cache-dir -U pip setuptools wheel \
-    && python3 -m pip install --no-cache-dir cmake west pc_ble_driver_py \
+    && python3 -m pip install --no-cache-dir cmake==3.21.2 west pc_ble_driver_py \
     #
     # nRF Connect SDK in-source requirements
     #
