@@ -33,7 +33,7 @@ FROM ${BASE}
 
 ARG NCS_REVISION="main"
 ARG CHIP_REVISION="master"
-ARG GN_BUILD_URL="https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-amd64/+/latest"
+ARG GN_BUILD_URL="https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-arm64/+/latest"
 
 ARG USERNAME="build"
 ARG GROUPNAME=${USERNAME}
@@ -50,7 +50,7 @@ RUN set -x \
     #
     && chmod 777 /tmp && apt-get update \
     && apt-get -y install autoconf \
-    && apt-get -y install --no-install-recommends sudo make g++ g++-multilib \
+    && apt-get -y install --no-install-recommends sudo make g++ gcc-multilib-arm-linux-gnueabi gcc-multilib-arm-linux-gnueabihf \
         libssl-dev libtool libdbus-1-dev libdbus-glib-1-dev libavahi-client-dev \
         libpython3-dev libgirepository-1.0-1 python3-venv nano screen python-is-python3\
     #
@@ -69,6 +69,8 @@ RUN set -x \
     && python3 -m pip install --no-cache-dir lark \
     && python3 -m pip install --no-cache-dir stringcase \
     #
+    # I'm hit by https://gitlab.kitware.com/cmake/cmake/-/issues/23187, so updating cmake
+    && python3 -m pip install cmake==3.25.0 \
     # Cleanup
     #
     && apt-get -y clean && apt-get -y autoremove \

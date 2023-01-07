@@ -1,0 +1,537 @@
+ck:245350353)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:23.329,895] [0m<inf> chip: [IN](S) Sending msg 107749559 on secure session with LSID: 30098[0m
+[14:20:23.331,085] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350353 on exchange 20041i[0m
+[14:20:25.307,617] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:25.307,922] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:25.315,429] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:25.315,551] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:25.316,436] [0m<inf> chip: [EM]<<< [E:20042i M:107749560] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:25.316,589] [0m<inf> chip: [IN](S) Sending msg 107749560 on secure session with LSID: 30098[0m
+[14:20:25.317,932] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:25.318,054] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:25.318,206] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:25.318,328] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:25.318,664] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:25.339,874] [0m<inf> chip: [EM]>>> [E:20042i M:245350354 (Ack:107749560)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:25.340,026] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20042i, Delegate: 0x20014984[0m
+[14:20:25.340,240] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749560 from Retrans Table on exchange 20042i[0m
+[14:20:25.340,423] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:25.340,545] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:25.340,637] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:25.341,461] [0m<inf> chip: [EM]<<< [E:20042i M:107749561 (Ack:245350354)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:25.341,613] [0m<inf> chip: [IN](S) Sending msg 107749561 on secure session with LSID: 30098[0m
+[14:20:25.342,803] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350354 on exchange 20042i[0m
+[14:20:27.318,511] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:27.318,817] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:27.326,324] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:27.326,446] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:27.327,331] [0m<inf> chip: [EM]<<< [E:20043i M:107749562] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:27.327,484] [0m<inf> chip: [IN](S) Sending msg 107749562 on secure session with LSID: 30098[0m
+[14:20:27.328,826] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:27.328,979] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:27.329,132] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:27.329,223] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:27.329,437] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:27.352,050] [0m<inf> chip: [EM]>>> [E:20043i M:245350355 (Ack:107749562)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:27.352,203] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20043i, Delegate: 0x20014984[0m
+[14:20:27.352,386] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749562 from Retrans Table on exchange 20043i[0m
+[14:20:27.352,600] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:27.352,722] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:27.352,783] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:27.353,607] [0m<inf> chip: [EM]<<< [E:20043i M:107749563 (Ack:245350355)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:27.353,759] [0m<inf> chip: [IN](S) Sending msg 107749563 on secure session with LSID: 30098[0m
+[14:20:27.355,194] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350355 on exchange 20043i[0m
+[14:20:29.329,956] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:29.330,261] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:29.337,768] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:29.337,890] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:29.338,806] [0m<inf> chip: [EM]<<< [E:20044i M:107749564] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:29.338,958] [0m<inf> chip: [IN](S) Sending msg 107749564 on secure session with LSID: 30098[0m
+[14:20:29.340,270] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:29.340,423] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:29.340,576] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:29.340,667] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:29.340,881] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:29.366,088] [0m<inf> chip: [EM]>>> [E:20044i M:245350356 (Ack:107749564)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:29.366,241] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20044i, Delegate: 0x20014984[0m
+[14:20:29.366,455] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749564 from Retrans Table on exchange 20044i[0m
+[14:20:29.366,638] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:29.366,760] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:29.366,851] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:29.367,675] [0m<inf> chip: [EM]<<< [E:20044i M:107749565 (Ack:245350356)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:29.367,828] [0m<inf> chip: [IN](S) Sending msg 107749565 on secure session with LSID: 30098[0m
+[14:20:29.369,018] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350356 on exchange 20044i[0m
+[14:20:31.340,637] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:31.340,942] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:31.348,480] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:31.348,571] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:31.349,487] [0m<inf> chip: [EM]<<< [E:20045i M:107749566] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:31.349,639] [0m<inf> chip: [IN](S) Sending msg 107749566 on secure session with LSID: 30098[0m
+[14:20:31.351,135] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:31.351,287] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:31.351,684] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:31.351,776] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:31.351,989] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:31.374,267] [0m<inf> chip: [EM]>>> [E:20045i M:245350357 (Ack:107749566)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:31.374,450] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20045i, Delegate: 0x20014984[0m
+[14:20:31.374,633] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749566 from Retrans Table on exchange 20045i[0m
+[14:20:31.374,816] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:31.374,938] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:31.375,030] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:31.375,854] [0m<inf> chip: [EM]<<< [E:20045i M:107749567 (Ack:245350357)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:31.376,007] [0m<inf> chip: [IN](S) Sending msg 107749567 on secure session with LSID: 30098[0m
+[14:20:31.377,227] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350357 on exchange 20045i[0m
+[14:20:33.352,874] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:33.353,179] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:33.360,687] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:33.360,809] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:33.361,694] [0m<inf> chip: [EM]<<< [E:20046i M:107749568] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:33.361,846] [0m<inf> chip: [IN](S) Sending msg 107749568 on secure session with LSID: 30098[0m
+[14:20:33.363,189] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:33.363,311] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:33.363,464] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:33.363,586] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:33.363,800] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:33.389,678] [0m<inf> chip: [EM]>>> [E:20046i M:245350358 (Ack:107749568)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:33.389,801] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20046i, Delegate: 0x20014984[0m
+[14:20:33.390,014] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749568 from Retrans Table on exchange 20046i[0m
+[14:20:33.390,228] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:33.390,350] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:33.390,441] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:33.391,265] [0m<inf> chip: [EM]<<< [E:20046i M:107749569 (Ack:245350358)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:33.391,418] [0m<inf> chip: [IN](S) Sending msg 107749569 on secure session with LSID: 30098[0m
+[14:20:33.392,608] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350358 on exchange 20046i[0m
+[14:20:35.363,281] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:35.363,586] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:35.371,093] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:35.371,215] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:35.372,100] [0m<inf> chip: [EM]<<< [E:20047i M:107749570] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:35.372,283] [0m<inf> chip: [IN](S) Sending msg 107749570 on secure session with LSID: 30098[0m
+[14:20:35.374,023] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:35.374,176] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:35.374,328] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:35.374,420] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:35.374,633] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:35.395,690] [0m<inf> chip: [EM]>>> [E:20047i M:245350359 (Ack:107749570)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:35.395,843] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20047i, Delegate: 0x20014984[0m
+[14:20:35.396,026] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749570 from Retrans Table on exchange 20047i[0m
+[14:20:35.396,240] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:35.396,362] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:35.396,453] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:35.397,277] [0m<inf> chip: [EM]<<< [E:20047i M:107749571 (Ack:245350359)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:35.397,430] [0m<inf> chip: [IN](S) Sending msg 107749571 on secure session with LSID: 30098[0m
+[14:20:35.398,620] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350359 on exchange 20047i[0m
+[14:20:37.375,122] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:37.375,427] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:37.382,934] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:37.383,056] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:37.383,972] [0m<inf> chip: [EM]<<< [E:20048i M:107749572] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:37.384,124] [0m<inf> chip: [IN](S) Sending msg 107749572 on secure session with LSID: 30098[0m
+[14:20:37.385,437] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:37.385,589] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:37.385,894] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:37.386,016] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:37.386,474] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:37.408,447] [0m<inf> chip: [EM]>>> [E:20048i M:245350360 (Ack:107749572)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:37.408,630] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20048i, Delegate: 0x20014984[0m
+[14:20:37.408,813] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749572 from Retrans Table on exchange 20048i[0m
+[14:20:37.408,996] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:37.409,118] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:37.409,240] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:37.410,034] [0m<inf> chip: [EM]<<< [E:20048i M:107749573 (Ack:245350360)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:37.410,186] [0m<inf> chip: [IN](S) Sending msg 107749573 on secure session with LSID: 30098[0m
+[14:20:37.411,407] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350360 on exchange 20048i[0m
+[14:20:39.387,054] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:39.387,359] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:39.394,866] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:39.394,989] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:39.395,874] [0m<inf> chip: [EM]<<< [E:20049i M:107749574] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:39.396,026] [0m<inf> chip: [IN](S) Sending msg 107749574 on secure session with LSID: 30098[0m
+[14:20:39.397,369] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:39.397,491] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:39.397,644] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:39.397,766] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:39.397,949] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:39.420,593] [0m<inf> chip: [EM]>>> [E:20049i M:245350361 (Ack:107749574)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:39.420,745] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20049i, Delegate: 0x20014984[0m
+[14:20:39.420,928] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749574 from Retrans Table on exchange 20049i[0m
+[14:20:39.421,142] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:39.421,264] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:39.421,356] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:39.422,149] [0m<inf> chip: [EM]<<< [E:20049i M:107749575 (Ack:245350361)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:39.422,332] [0m<inf> chip: [IN](S) Sending msg 107749575 on secure session with LSID: 30098[0m
+[14:20:39.423,522] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350361 on exchange 20049i[0m
+[14:20:41.398,223] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:41.398,529] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:41.406,036] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:41.406,158] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:41.407,043] [0m<inf> chip: [EM]<<< [E:20050i M:107749576] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:41.407,196] [0m<inf> chip: [IN](S) Sending msg 107749576 on secure session with LSID: 30098[0m
+[14:20:41.408,538] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:41.408,660] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:41.408,843] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:41.408,935] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:41.409,149] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:41.431,976] [0m<inf> chip: [EM]>>> [E:20050i M:245350362 (Ack:107749576)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:41.432,128] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20050i, Delegate: 0x20014984[0m
+[14:20:41.432,342] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749576 from Retrans Table on exchange 20050i[0m
+[14:20:41.432,556] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:41.432,678] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:41.432,739] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:41.433,563] [0m<inf> chip: [EM]<<< [E:20050i M:107749577 (Ack:245350362)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:41.433,715] [0m<inf> chip: [IN](S) Sending msg 107749577 on secure session with LSID: 30098[0m
+[14:20:41.434,936] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350362 on exchange 20050i[0m
+[14:20:43.409,454] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:43.409,759] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:43.417,266] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:43.417,388] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:43.418,273] [0m<inf> chip: [EM]<<< [E:20051i M:107749578] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:43.418,457] [0m<inf> chip: [IN](S) Sending msg 107749578 on secure session with LSID: 30098[0m
+[14:20:43.419,769] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:43.419,921] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:43.420,074] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:43.420,166] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:43.420,379] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:43.444,824] [0m<inf> chip: [EM]>>> [E:20051i M:245350363 (Ack:107749578)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:43.444,976] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20051i, Delegate: 0x20014984[0m
+[14:20:43.445,190] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749578 from Retrans Table on exchange 20051i[0m
+[14:20:43.445,373] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:43.445,526] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:43.445,587] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:43.446,411] [0m<inf> chip: [EM]<<< [E:20051i M:107749579 (Ack:245350363)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:43.446,563] [0m<inf> chip: [IN](S) Sending msg 107749579 on secure session with LSID: 30098[0m
+[14:20:43.447,753] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350363 on exchange 20051i[0m
+[14:20:45.420,349] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:45.420,654] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:45.428,161] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:45.428,283] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:45.429,199] [0m<inf> chip: [EM]<<< [E:20052i M:107749580] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:45.429,351] [0m<inf> chip: [IN](S) Sending msg 107749580 on secure session with LSID: 30098[0m
+[14:20:45.430,847] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:45.430,999] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:45.431,396] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:45.431,488] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:45.431,701] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:45.453,948] [0m<inf> chip: [EM]>>> [E:20052i M:245350364 (Ack:107749580)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:45.454,101] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20052i, Delegate: 0x20014984[0m
+[14:20:45.454,284] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749580 from Retrans Table on exchange 20052i[0m
+[14:20:45.454,498] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:45.454,620] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:45.454,711] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:45.455,535] [0m<inf> chip: [EM]<<< [E:20052i M:107749581 (Ack:245350364)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:45.455,688] [0m<inf> chip: [IN](S) Sending msg 107749581 on secure session with LSID: 30098[0m
+[14:20:45.456,878] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350364 on exchange 20052i[0m
+[14:20:47.431,610] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:47.431,915] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:47.439,422] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:47.439,544] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:47.440,429] [0m<inf> chip: [EM]<<< [E:20053i M:107749582] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:47.440,612] [0m<inf> chip: [IN](S) Sending msg 107749582 on secure session with LSID: 30098[0m
+[14:20:47.441,925] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:47.442,047] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:47.442,199] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:47.442,291] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:47.442,687] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:47.463,745] [0m<inf> chip: [EM]>>> [E:20053i M:245350365 (Ack:107749582)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:47.463,897] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20053i, Delegate: 0x20014984[0m
+[14:20:47.464,111] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749582 from Retrans Table on exchange 20053i[0m
+[14:20:47.464,294] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:47.464,416] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:47.464,508] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:47.465,332] [0m<inf> chip: [EM]<<< [E:20053i M:107749583 (Ack:245350365)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:47.465,484] [0m<inf> chip: [IN](S) Sending msg 107749583 on secure session with LSID: 30098[0m
+[14:20:47.466,674] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350365 on exchange 20053i[0m
+[14:20:49.443,237] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:49.443,542] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:49.451,049] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:49.451,171] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:49.452,056] [0m<inf> chip: [EM]<<< [E:20054i M:107749584] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:49.452,209] [0m<inf> chip: [IN](S) Sending msg 107749584 on secure session with LSID: 30098[0m
+[14:20:49.453,521] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:49.453,704] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:49.453,857] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:49.453,948] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:49.454,162] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:49.476,074] [0m<inf> chip: [EM]>>> [E:20054i M:245350366 (Ack:107749584)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:49.476,257] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20054i, Delegate: 0x20014984[0m
+[14:20:49.476,440] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749584 from Retrans Table on exchange 20054i[0m
+[14:20:49.476,654] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:49.476,776] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:49.476,867] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:49.477,661] [0m<inf> chip: [EM]<<< [E:20054i M:107749585 (Ack:245350366)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:49.477,844] [0m<inf> chip: [IN](S) Sending msg 107749585 on secure session with LSID: 30098[0m
+[14:20:49.479,309] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350366 on exchange 20054i[0m
+[14:20:51.454,986] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:51.455,291] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:51.462,799] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:51.462,921] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:51.463,836] [0m<inf> chip: [EM]<<< [E:20055i M:107749586] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:51.463,989] [0m<inf> chip: [IN](S) Sending msg 107749586 on secure session with LSID: 30098[0m
+[14:20:51.465,301] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:51.465,423] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:51.465,606] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:51.465,698] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:51.465,911] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:51.487,396] [0m<inf> chip: [EM]>>> [E:20055i M:245350367 (Ack:107749586)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:51.487,548] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20055i, Delegate: 0x20014984[0m
+[14:20:51.487,762] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749586 from Retrans Table on exchange 20055i[0m
+[14:20:51.487,976] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:51.488,189] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:51.488,250] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:51.489,318] [0m<inf> chip: [EM]<<< [E:20055i M:107749587 (Ack:245350367)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:51.489,501] [0m<inf> chip: [IN](S) Sending msg 107749587 on secure session with LSID: 30098[0m
+[14:20:51.490,783] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350367 on exchange 20055i[0m
+[14:20:53.465,393] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:53.465,698] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:53.473,236] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:53.473,327] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:53.474,243] [0m<inf> chip: [EM]<<< [E:20056i M:107749588] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:53.474,395] [0m<inf> chip: [IN](S) Sending msg 107749588 on secure session with LSID: 30098[0m
+[14:20:53.475,891] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:53.476,043] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:53.476,440] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:53.476,531] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:53.476,745] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:53.497,528] [0m<inf> chip: [EM]>>> [E:20056i M:245350368 (Ack:107749588)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:53.497,711] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20056i, Delegate: 0x20014984[0m
+[14:20:53.497,894] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749588 from Retrans Table on exchange 20056i[0m
+[14:20:53.498,107] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:53.498,229] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:53.498,291] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:53.499,145] [0m<inf> chip: [EM]<<< [E:20056i M:107749589 (Ack:245350368)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:53.499,298] [0m<inf> chip: [IN](S) Sending msg 107749589 on secure session with LSID: 30098[0m
+[14:20:53.500,488] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350368 on exchange 20056i[0m
+[14:20:55.477,111] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:55.477,416] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:55.484,924] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:55.485,046] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:55.485,931] [0m<inf> chip: [EM]<<< [E:20057i M:107749590] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:55.486,083] [0m<inf> chip: [IN](S) Sending msg 107749590 on secure session with LSID: 30098[0m
+[14:20:55.487,396] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:55.487,548] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:55.487,701] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:55.487,823] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:55.488,159] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:55.508,819] [0m<inf> chip: [EM]>>> [E:20057i M:245350369 (Ack:107749590)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:55.508,972] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20057i, Delegate: 0x20014984[0m
+[14:20:55.509,185] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749590 from Retrans Table on exchange 20057i[0m
+[14:20:55.509,368] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:55.509,490] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:55.509,582] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:55.510,406] [0m<inf> chip: [EM]<<< [E:20057i M:107749591 (Ack:245350369)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:55.510,559] [0m<inf> chip: [IN](S) Sending msg 107749591 on secure session with LSID: 30098[0m
+[14:20:55.511,779] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350369 on exchange 20057i[0m
+[14:20:57.489,288] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:57.489,593] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:57.497,100] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:57.497,222] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:57.498,107] [0m<inf> chip: [EM]<<< [E:20058i M:107749592] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:57.498,260] [0m<inf> chip: [IN](S) Sending msg 107749592 on secure session with LSID: 30098[0m
+[14:20:57.500,030] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:57.500,183] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:57.500,335] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:57.500,427] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:57.500,610] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:57.524,902] [0m<inf> chip: [EM]>>> [E:20058i M:245350370 (Ack:107749592)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:57.525,054] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20058i, Delegate: 0x20014984[0m
+[14:20:57.525,268] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749592 from Retrans Table on exchange 20058i[0m
+[14:20:57.525,451] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:57.525,573] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:57.525,665] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:57.526,458] [0m<inf> chip: [EM]<<< [E:20058i M:107749593 (Ack:245350370)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:57.526,641] [0m<inf> chip: [IN](S) Sending msg 107749593 on secure session with LSID: 30098[0m
+[14:20:57.527,832] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350370 on exchange 20058i[0m
+[14:20:59.500,518] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:20:59.500,823] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:20:59.508,361] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:20:59.508,483] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:20:59.509,368] [0m<inf> chip: [EM]<<< [E:20059i M:107749594] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:20:59.509,521] [0m<inf> chip: [IN](S) Sending msg 107749594 on secure session with LSID: 30098[0m
+[14:20:59.510,864] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:20:59.510,986] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:20:59.511,322] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:20:59.511,444] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:20:59.511,901] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:20:59.538,818] [0m<inf> chip: [EM]>>> [E:20059i M:245350371 (Ack:107749594)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:20:59.538,970] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20059i, Delegate: 0x20014984[0m
+[14:20:59.539,184] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749594 from Retrans Table on exchange 20059i[0m
+[14:20:59.539,367] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:20:59.539,489] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:20:59.539,581] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:20:59.540,405] [0m<inf> chip: [EM]<<< [E:20059i M:107749595 (Ack:245350371)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:20:59.540,588] [0m<inf> chip: [IN](S) Sending msg 107749595 on secure session with LSID: 30098[0m
+[14:20:59.541,778] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350371 on exchange 20059i[0m
+[14:21:01.511,444] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:01.511,749] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:01.519,256] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:01.519,378] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:01.520,263] [0m<inf> chip: [EM]<<< [E:20060i M:107749596] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:01.520,416] [0m<inf> chip: [IN](S) Sending msg 107749596 on secure session with LSID: 30098[0m
+[14:21:01.521,728] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:01.521,881] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:01.522,033] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:01.522,155] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:01.522,491] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:01.544,525] [0m<inf> chip: [EM]>>> [E:20060i M:245350372 (Ack:107749596)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:01.544,677] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20060i, Delegate: 0x20014984[0m
+[14:21:01.544,891] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749596 from Retrans Table on exchange 20060i[0m
+[14:21:01.545,104] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:01.545,227] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:01.545,288] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:01.546,112] [0m<inf> chip: [EM]<<< [E:20060i M:107749597 (Ack:245350372)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:01.546,295] [0m<inf> chip: [IN](S) Sending msg 107749597 on secure session with LSID: 30098[0m
+[14:21:01.547,485] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350372 on exchange 20060i[0m
+[14:21:03.523,071] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:03.523,376] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:03.530,883] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:03.531,005] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:03.531,890] [0m<inf> chip: [EM]<<< [E:20061i M:107749598] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:03.532,073] [0m<inf> chip: [IN](S) Sending msg 107749598 on secure session with LSID: 30098[0m
+[14:21:03.533,386] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:03.533,508] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:03.533,691] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:03.533,782] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:03.533,996] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:03.556,396] [0m<inf> chip: [EM]>>> [E:20061i M:245350373 (Ack:107749598)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:03.556,549] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20061i, Delegate: 0x20014984[0m
+[14:21:03.556,732] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749598 from Retrans Table on exchange 20061i[0m
+[14:21:03.556,915] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:03.557,067] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:03.557,159] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:03.557,983] [0m<inf> chip: [EM]<<< [E:20061i M:107749599 (Ack:245350373)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:03.558,135] [0m<inf> chip: [IN](S) Sending msg 107749599 on secure session with LSID: 30098[0m
+[14:21:03.559,539] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350373 on exchange 20061i[0m
+[14:21:05.534,332] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:05.534,637] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:05.542,144] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:05.542,266] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:05.543,151] [0m<inf> chip: [EM]<<< [E:20062i M:107749600] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:05.543,334] [0m<inf> chip: [IN](S) Sending msg 107749600 on secure session with LSID: 30098[0m
+[14:21:05.544,647] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:05.544,769] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:05.544,921] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:05.545,043] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:05.545,257] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:05.567,169] [0m<inf> chip: [EM]>>> [E:20062i M:245350374 (Ack:107749600)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:05.567,321] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20062i, Delegate: 0x20014984[0m
+[14:21:05.567,535] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749600 from Retrans Table on exchange 20062i[0m
+[14:21:05.567,718] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:05.567,840] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:05.567,932] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:05.568,786] [0m<inf> chip: [EM]<<< [E:20062i M:107749601 (Ack:245350374)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:05.568,939] [0m<inf> chip: [IN](S) Sending msg 107749601 on secure session with LSID: 30098[0m
+[14:21:05.570,129] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350374 on exchange 20062i[0m
+[14:21:07.545,806] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:07.546,112] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:07.553,649] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:07.553,771] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:07.554,656] [0m<inf> chip: [EM]<<< [E:20063i M:107749602] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:07.554,809] [0m<inf> chip: [IN](S) Sending msg 107749602 on secure session with LSID: 30098[0m
+[14:21:07.556,304] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:07.556,457] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:07.556,854] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:07.556,945] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:07.557,159] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:07.576,873] [0m<inf> chip: [EM]>>> [E:20063i M:245350375 (Ack:107749602)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:07.577,026] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20063i, Delegate: 0x20014984[0m
+[14:21:07.577,239] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749602 from Retrans Table on exchange 20063i[0m
+[14:21:07.577,423] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:07.577,575] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:07.577,636] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:07.578,491] [0m<inf> chip: [EM]<<< [E:20063i M:107749603 (Ack:245350375)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:07.578,643] [0m<inf> chip: [IN](S) Sending msg 107749603 on secure session with LSID: 30098[0m
+[14:21:07.579,833] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350375 on exchange 20063i[0m
+[14:21:09.557,434] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:09.557,739] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:09.565,246] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:09.565,368] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:09.566,253] [0m<inf> chip: [EM]<<< [E:20064i M:107749604] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:09.566,406] [0m<inf> chip: [IN](S) Sending msg 107749604 on secure session with LSID: 30098[0m
+[14:21:09.567,718] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:09.567,871] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:09.568,023] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:09.568,145] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:09.568,481] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:09.593,261] [0m<inf> chip: [EM]>>> [E:20064i M:245350376 (Ack:107749604)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:09.593,414] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20064i, Delegate: 0x20014984[0m
+[14:21:09.593,627] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749604 from Retrans Table on exchange 20064i[0m
+[14:21:09.593,811] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:09.593,933] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:09.594,024] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:09.594,879] [0m<inf> chip: [EM]<<< [E:20064i M:107749605 (Ack:245350376)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:09.595,031] [0m<inf> chip: [IN](S) Sending msg 107749605 on secure session with LSID: 30098[0m
+[14:21:09.596,221] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350376 on exchange 20064i[0m
+[14:21:11.568,939] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:11.569,244] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:11.576,751] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:11.576,873] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:11.577,758] [0m<inf> chip: [EM]<<< [E:20065i M:107749606] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:11.577,911] [0m<inf> chip: [IN](S) Sending msg 107749606 on secure session with LSID: 30098[0m
+[14:21:11.579,681] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:11.579,833] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:11.579,986] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:11.580,078] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:11.580,291] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:11.602,783] [0m<inf> chip: [EM]>>> [E:20065i M:245350377 (Ack:107749606)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:11.602,935] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20065i, Delegate: 0x20014984[0m
+[14:21:11.603,118] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749606 from Retrans Table on exchange 20065i[0m
+[14:21:11.603,332] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:11.603,454] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:11.603,546] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:11.604,400] [0m<inf> chip: [EM]<<< [E:20065i M:107749607 (Ack:245350377)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:11.604,553] [0m<inf> chip: [IN](S) Sending msg 107749607 on secure session with LSID: 30098[0m
+[14:21:11.605,743] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350377 on exchange 20065i[0m
+[14:21:13.580,413] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:13.580,718] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:13.588,256] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:13.588,378] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:13.589,263] [0m<inf> chip: [EM]<<< [E:20066i M:107749608] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:13.589,416] [0m<inf> chip: [IN](S) Sending msg 107749608 on secure session with LSID: 30098[0m
+[14:21:13.590,728] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:13.590,881] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:13.591,186] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:13.591,339] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:13.591,766] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:13.614,410] [0m<inf> chip: [EM]>>> [E:20066i M:245350378 (Ack:107749608)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:13.614,562] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20066i, Delegate: 0x20014984[0m
+[14:21:13.614,776] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749608 from Retrans Table on exchange 20066i[0m
+[14:21:13.614,959] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:13.615,081] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:13.615,173] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:13.615,997] [0m<inf> chip: [EM]<<< [E:20066i M:107749609 (Ack:245350378)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:13.616,149] [0m<inf> chip: [IN](S) Sending msg 107749609 on secure session with LSID: 30098[0m
+[14:21:13.617,340] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350378 on exchange 20066i[0m
+[14:21:15.592,041] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:15.592,346] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:15.599,853] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:15.599,975] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:15.600,860] [0m<inf> chip: [EM]<<< [E:20067i M:107749610] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:15.601,013] [0m<inf> chip: [IN](S) Sending msg 107749610 on secure session with LSID: 30098[0m
+[14:21:15.602,355] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:15.602,478] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:15.602,630] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:15.602,752] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:15.602,935] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:15.625,488] [0m<inf> chip: [EM]>>> [E:20067i M:245350379 (Ack:107749610)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:15.625,640] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20067i, Delegate: 0x20014984[0m
+[14:21:15.625,854] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749610 from Retrans Table on exchange 20067i[0m
+[14:21:15.626,037] [0m<inf> chip: [IM]Received status response, status is 0x00[0m
+[14:21:15.626,159] [0m<dbg> chip: LogV: [DMG]<RE> OnReportConfirm: NumReports = 0[0m
+[14:21:15.626,251] [0m<dbg> chip: LogV: [DMG]IM RH moving to [GeneratingReports][0m
+[14:21:15.627,075] [0m<inf> chip: [EM]<<< [E:20067i M:107749611 (Ack:245350379)] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0000:10 (SecureChannel:StandaloneAck)[0m
+[14:21:15.627,227] [0m<inf> chip: [IN](S) Sending msg 107749611 on secure session with LSID: 30098[0m
+[14:21:15.628,417] [0m<dbg> chip: LogV: [EM]Flushed pending ack for MessageCounter:245350379 on exchange 20067i[0m
+[14:21:17.602,996] [0m<inf> chip: [DMG]Refresh subscribe timer sync after 2 seconds[0m
+[14:21:17.603,302] [0m<dbg> chip: LogV: [DMG]Building Reports for ReadHandler with LastReportGeneration = 43 DirtyGeneration = 43[0m
+[14:21:17.610,809] [0m<dbg> chip: LogV: [DMG]Fetched 0 events[0m
+[14:21:17.610,931] [0m<dbg> chip: LogV: [DMG]<RE> Sending report (payload has 11 bytes)...[0m
+[14:21:17.611,816] [0m<inf> chip: [EM]<<< [E:20068i M:107749612] (S) Msg TX to 1:245CE40535B9E45C [95ED] --- Type 0001:05 (IM:ReportData)[0m
+[14:21:17.611,968] [0m<inf> chip: [IN](S) Sending msg 107749612 on secure session with LSID: 30098[0m
+[14:21:17.613,281] [0m<dbg> chip: LogV: [DMG]IM RH moving to [AwaitingReportResponse][0m
+[14:21:17.613,433] [0m<inf> chip: [DMG]Refresh Subscribe Sync Timer with min 0 seconds and max 2 seconds[0m
+[14:21:17.613,616] [0m<dbg> chip: LogV: [DMG]<RE> ReportsInFlight = 1 with readHandler 0, RE has no more messages[0m
+[14:21:17.613,708] [0m<dbg> chip: LogV: [DMG]All ReadHandler-s are clean, clear GlobalDirtySet[0m
+[14:21:17.613,922] [0m<dbg> chip: LogV: [DMG]Unblock report hold after min 0 seconds[0m
+[14:21:17.636,535] [0m<inf> chip: [EM]>>> [E:20068i M:245350380 (Ack:107749612)] (S) Msg RX from 1:245CE40535B9E45C [95ED] --- Type 0001:01 (IM:StatusResponse)[0m
+[14:21:17.636,688] [0m<dbg> chip: LogV: [EM]Found matching exchange: 20068i, Delegate: 0x20014984[0m
+[14:21:17.636,871] [0m<dbg> chip: LogV: [EM]Rxd Ack; Removing MessageCounter:107749612 from Retrans Table on exchange 20068i[0

@@ -30,19 +30,19 @@
 
 FROM ubuntu:20.04
 
-ARG TOOLCHAIN_MD5="fe0029de4f4ec43cf7008944e34ff8cc"
-ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
-ARG NRF_TOOLS_SHA256="3626416b777e89282f3baea71ef7ba9eceb8ef36aff6fe06dbcc88f7cfe0b961"
-ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-2/nrf-command-line-tools-10.15.2_Linux-amd64.zip"
+ARG TOOLCHAIN_MD5="0dfa059aae18fcf7d842e30c525076a4"
+ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-aarch64-linux.tar.bz2"
+ARG NRF_TOOLS_SHA256="30D83885F821F2053BDF42044D8D132F586AF1AE6C911F8408554A4980D21243"
+ARG NRF_TOOLS_URL="https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-15-4/nrf-command-line-tools-10.15.4_arm64.zip"
 ARG NCS_REVISION="main"
 
 RUN set -x \
     #
-    # Install apt packages (gcc and libpython3-dev are temporarily needed to install some pip modules)
+    # Install apt packages (gcc and libpython3-dev and clang and build-essential are temporarily needed to install some pip modules)
     #
     && DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends bzip2 unzip curl ninja-build python3-pip git device-tree-compiler libusb-1.0-0 libncurses5 \
-    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends gcc libpython3-dev libsm6 \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends gcc libpython3-dev clang build-essential libsm6 \
     #
     # nRF Tools for flashing software on Nordic devices, and accessing device logs
     #
@@ -51,8 +51,8 @@ RUN set -x \
     && curl -L -o tools.zip ${NRF_TOOLS_URL} \
     && sha256sum -c tools.zip.sha256 \
     && unzip tools.zip \
-    && dpkg -i nrf-command-line-tools_*_amd64.deb \
-    && dpkg -i JLink_Linux_*x86_64.deb) \
+    && dpkg -i nrf-command-line-tools_*_arm64.deb \
+    && dpkg -i JLink_Linux_*arm64.deb) \
     #
     # GCC ARM Embedded Toolchain
     #
@@ -78,7 +78,7 @@ RUN set -x \
     #
     # Cleanup
     #
-    && DEBIAN_FRONTEND=noninteractive apt-get -yq remove gcc libpython3-dev \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq remove gcc libpython3-dev clang build-essential \
     && DEBIAN_FRONTEND=noninteractive apt-get -yq clean \
     && DEBIAN_FRONTEND=noninteractive apt-get -yq autoremove \
     && rm -rf /tmp/* /var/lib/apt/lists/* ~/.cache/* \
