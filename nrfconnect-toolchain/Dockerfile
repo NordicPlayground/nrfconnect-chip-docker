@@ -30,42 +30,39 @@
 
 FROM ubuntu:20.04
 
-ARG TOOLCHAIN_MD5="fe0029de4f4ec43cf7008944e34ff8cc"
-ARG TOOLCHAIN_URL="https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2"
-ARG NRF_TOOLS_SHA256="3626416b777e89282f3baea71ef7ba9eceb8ef36aff6fe06dbcc88f7cfe0b961"
-ARG NRF_TOOLS_URL="https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-2/nrf-command-line-tools-10.15.2_Linux-amd64.zip"
-ARG NCS_REVISION="main"
+ARG TOOLCHAIN_SHA256="ae31dc109e4b24b8642efd3eb499bf6b027741493153079449ae5ab87b58fdeb"
+ARG TOOLCHAIN_URL="https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.2/zephyr-sdk-0.15.2_linux-x86_64_minimal.tar.gz"
+ARG NRF_TOOLS_SHA256="ad74e977520d5d05c028b7cb98dd382c35ba15df432c8e2bde9ccf8704380447"
+ARG NRF_TOOLS_URL="https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-19-0/nrf-command-line-tools_10.19.0_amd64.deb"
+ARG NCS_REVISION="v2.2.0"
 
 RUN set -x \
     #
     # Install apt packages (gcc and libpython3-dev are temporarily needed to install some pip modules)
     #
     && DEBIAN_FRONTEND=noninteractive apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends bzip2 unzip curl ninja-build python3-pip git device-tree-compiler libusb-1.0-0 libncurses5 \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends unzip curl wget ninja-build python3-pip git device-tree-compiler libusb-1.0-0 libncurses5 \
     && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends gcc libpython3-dev libsm6 \
     #
     # nRF Tools for flashing software on Nordic devices, and accessing device logs
     #
     && (mkdir /tmp/tools && cd /tmp/tools \
-    && echo "${NRF_TOOLS_SHA256} tools.zip" >> tools.zip.sha256 \
-    && curl -L -o tools.zip ${NRF_TOOLS_URL} \
-    && sha256sum -c tools.zip.sha256 \
-    && unzip tools.zip \
-    && dpkg -i nrf-command-line-tools_*_amd64.deb \
-    && dpkg -i JLink_Linux_*x86_64.deb) \
-    #
-    # GCC ARM Embedded Toolchain
-    #
-    && (mkdir /tmp/toolchain && cd /tmp/toolchain \
-    && echo "${TOOLCHAIN_MD5} toolchain.tar.bz2" > toolchain.tar.bz2.md5 \
-    && curl -L -o toolchain.tar.bz2 ${TOOLCHAIN_URL} \
-    && md5sum -c toolchain.tar.bz2.md5 \
-    && tar xjf toolchain.tar.bz2 -C /opt --exclude='*/share/doc') \
+    && curl -L -o tools.deb ${NRF_TOOLS_URL} \
+    && echo "${NRF_TOOLS_SHA256} tools.deb" | sha256sum -c - \
+    && dpkg -i tools.deb) \
     #
     # nRF Connect SDK dependencies
     #
     && python3 -m pip install --no-cache-dir -U pip setuptools wheel \
-    && python3 -m pip install --no-cache-dir cmake==3.21.2 west pc_ble_driver_py \
+    && python3 -m pip install --no-cache-dir cmake west pc_ble_driver_py \
+    #
+    # GCC ARM Embedded Toolchain
+    #
+    && (mkdir /tmp/toolchain && cd /tmp/toolchain \
+    && curl -L -o toolchain.tar.gz ${TOOLCHAIN_URL} \
+    && echo "${TOOLCHAIN_SHA256} toolchain.tar.gz" | sha256sum -c - \
+    && tar xzf toolchain.tar.gz -C /opt \
+    && /opt/zephyr-sdk-0.15.2/setup.sh -t arm-zephyr-eabi) \
     #
     # nRF Connect SDK in-source requirements
     #
@@ -86,5 +83,5 @@ RUN set -x \
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
-ENV ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-ENV GNUARMEMB_TOOLCHAIN_PATH=/opt/gcc-arm-none-eabi-9-2019-q4-major/
+ENV ZEPHYR_SDK_INSTALL_DIR=/opt/zephyr-sdk-0.15.2
+ENV ZEPHYR_TOOLCHAIN_VARIANT=zephyr
