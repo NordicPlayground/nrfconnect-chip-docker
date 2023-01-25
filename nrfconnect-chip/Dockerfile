@@ -44,6 +44,9 @@ ENV NCS_REVISION ${NCS_REVISION}
 ENV CHIP_REVISION ${CHIP_REVISION}
 ENV ZEPHYR_BASE /var/ncs/zephyr
 
+ENV ZAP_VERSION v2023.01.19-nightly
+ENV ZAP_INSTALL_PATH /var/zap/${ZAP_VERSION}
+
 RUN set -x \
     #
     # Install autotools, CHIP dependencies and utilities
@@ -68,6 +71,13 @@ RUN set -x \
     #
     && python3 -m pip install --no-cache-dir lark \
     && python3 -m pip install --no-cache-dir stringcase \
+    #
+    # Install Zap cli
+    #
+    && sudo mkdir -p $ZAP_INSTALL_PATH \
+    && curl -L https://github.com/project-chip/zap/releases/download/$ZAP_VERSION/zap-linux.zip --output $ZAP_INSTALL_PATH/zap-linux.zip \
+    && unzip $ZAP_INSTALL_PATH/zap-linux.zip zap-cli -d $ZAP_INSTALL_PATH \
+    && rm $ZAP_INSTALL_PATH/zap-linux.zip \
     #
     # Cleanup
     #
