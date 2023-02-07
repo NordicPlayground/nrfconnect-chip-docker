@@ -34,6 +34,8 @@ ARG TOOLCHAIN_SHA256="ae31dc109e4b24b8642efd3eb499bf6b027741493153079449ae5ab87b
 ARG TOOLCHAIN_URL="https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.15.2/zephyr-sdk-0.15.2_linux-x86_64_minimal.tar.gz"
 ARG NRF_TOOLS_SHA256="ad74e977520d5d05c028b7cb98dd382c35ba15df432c8e2bde9ccf8704380447"
 ARG NRF_TOOLS_URL="https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-19-0/nrf-command-line-tools_10.19.0_amd64.deb"
+ARG JLINK_SHA256="a2880364386d0c9663beca4da16ef61fa1db93d405e024f5d535061dfe53d0e8"
+ARG JLINK_URL="https://www.segger.com/downloads/jlink/JLink_Linux_V780c_x86_64.deb"
 ARG NCS_REVISION="v2.2.0"
 
 RUN set -x \
@@ -47,9 +49,11 @@ RUN set -x \
     # nRF Tools for flashing software on Nordic devices, and accessing device logs
     #
     && (mkdir /tmp/tools && cd /tmp/tools \
+    && curl -L -X POST -d'accept_license_agreement=accepted' -o jlink.deb ${JLINK_URL} \
+    && echo "${JLINK_SHA256} jlink.deb" | sha256sum -c - \
     && curl -L -o tools.deb ${NRF_TOOLS_URL} \
     && echo "${NRF_TOOLS_SHA256} tools.deb" | sha256sum -c - \
-    && dpkg -i tools.deb) \
+    && DEBIAN_FRONTEND=noninteractive apt-get -yq install --no-install-recommends ./jlink.deb ./tools.deb) \
     #
     # nRF Connect SDK dependencies
     #
