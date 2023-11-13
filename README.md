@@ -2,6 +2,10 @@
 
 This repository contains definition of `nrfconnect-chip` docker image which may come in handy during development of CHIP applications based on nRF Connect SDK (NCS).
 
+> **Important**
+> 
+> This Docker image is no longer maintained, so you will not be able to use it without modifications to build Matter applications based on recent versions of nRF Connect SDK, such as 2.3.0 or newer. It is now recommended to use [Toolchain Manager](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/getting_started/assistant.html#install-toolchain-manager) to install nRF Connect SDK with all dependencies natively on your operating system. Note that Toolchain Manager is now available for Linux as well.
+
 ## Build instructions
 
 Below are steps needed to build `nrfconnect-chip` docker image. Note that the `build.sh` scripts take various optional arguments to customize the build and `build.sh --help` is the way to list all available options.
